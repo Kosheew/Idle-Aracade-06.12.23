@@ -13,6 +13,5 @@ public class CheckPlatform : MonoBehaviour
             Debug.Log("Collision detected with Platform");
             gameObject.SetActive(false);
         }
-        //if (collision.gameObject.tag == "Player") Debug.Log("Stop");
     }
 }

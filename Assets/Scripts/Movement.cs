@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
 
             Quaternion rotation = Quaternion.AngleAxis((i * (60f / numberOfRays)) - 30, Vector3.up);
             ray.direction = rotation * forwardDirection;
-            Debug.DrawRay(ray.origin, ray.direction * visionRange, Color.red);
+          //  Debug.DrawRay(ray.origin, ray.direction * visionRange, Color.red);
 
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, visionRange))

@@ -20,7 +20,6 @@ public class ZoneController : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         imageResurce.sprite = iconResurce;
         priceText.text = $"{sellScore} / {priceZone}";
-        //priceZone = Random.Range(15, 51);
     }
 
     private void OnTriggerStay(Collider other)
