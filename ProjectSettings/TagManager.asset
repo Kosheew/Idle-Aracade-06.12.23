@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Weapon
+  - Tree
+  - Wood
+  - Stone
+  - Crystal
+  - CreateZone
+  - Portal
+  - Workbench
   layers:
   - Default
   - TransparentFX
