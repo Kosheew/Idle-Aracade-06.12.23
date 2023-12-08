@@ -26,14 +26,14 @@ public class ZoneController : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!isDecreasingWood)
-            StartCoroutine(DecreaseWoodWithDelay());
+            StartCoroutine(DecreaseWithDelay());
         if (sellScore >= priceZone) 
         {
             openTitle.SetActive(true);
             Destroy(gameObject);
         }
     }
-    IEnumerator DecreaseWoodWithDelay()
+    IEnumerator DecreaseWithDelay()
     {
         isDecreasingWood = true;
         while (gameManager.Scores[shooseResurce] > 0)

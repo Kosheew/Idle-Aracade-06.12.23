@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-
+using UnityEngine.AI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private Joystick joystick;
@@ -10,6 +9,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float visionRange = 2f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] GameObject[] weapon;
+    [SerializeField] Collider[] checkPlatform;
+    public LayerMask platformLayer;
 
     private Rigidbody rb;
     private Animator animator;
@@ -53,17 +54,17 @@ public class Movement : MonoBehaviour
 
     private void MoveCharacter()
     {
-        float horizontalInput = joystick.Horizontal;
+         float horizontalInput = joystick.Horizontal;
         float verticalInput = joystick.Vertical;
 
         Vector3 inputDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-
+        
         if (inputDirection.magnitude >= 0.1f)
         {
             Vector3 moveDirection = Quaternion.Euler(0f, Camera.main.transform.eulerAngles.y, 0f) * inputDirection;
             rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
-
             animator.SetBool("Run", true);
+         
         }
         else
         {
@@ -112,6 +113,15 @@ public class Movement : MonoBehaviour
                 weapon[prewIndexWeapon].SetActive(true);
                 break;
         }    
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Portal") 
+        {
+            FindObjectOfType<GameManager>().Restart();
+            SceneManager.LoadScene(0);
+        }
     }
 }
 

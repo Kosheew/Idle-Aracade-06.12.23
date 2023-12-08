@@ -12,6 +12,7 @@ TagManager:
   - CreateZone
   - Portal
   - Workbench
+  - Detect
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Platform
   - 
   - 
   - 
