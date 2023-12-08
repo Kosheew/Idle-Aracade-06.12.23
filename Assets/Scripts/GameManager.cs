@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using SaveData;
 using UnityEngine.UIElements;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Movement>().transform.position;
     }
 
-    private void OnApplicationQuit()
+    private void OnApplicationPause(bool pauseStatus)
     {
         PlayerSavePosition = new Vector3(player.x, player.y, player.z);
         SaveManager.Save(saveKey, GetSave());

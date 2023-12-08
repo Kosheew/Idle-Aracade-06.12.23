@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class SaveManager 
+public static class SaveManager
 {
     public static void Save<T>(string key, T saveData)
     {
@@ -8,11 +8,11 @@ public static class SaveManager
         PlayerPrefs.SetString(key, jsonDataString);
     }
 
-    public static T Load<T>(string key) where T: new() 
+    public static T Load<T>(string key) where T : new()
     {
         if (PlayerPrefs.HasKey(key))
         {
-            string loadString = PlayerPrefs.GetString(key); 
+            string loadString = PlayerPrefs.GetString(key);
             return JsonUtility.FromJson<T>(loadString);
         }
         return new T();
