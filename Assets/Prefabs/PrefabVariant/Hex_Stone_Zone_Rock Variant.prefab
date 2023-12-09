@@ -80,25 +80,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4981830531298898091}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1790983477685482354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6771687068621685721, guid: d767cc02bbbf49b408f00e6b817d87c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4981830531298898091}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1684518409
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790983477685482354}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.30522665
-  m_Center: {x: 0.06494729, y: -0.15733051, z: -0.052735448}
 --- !u!1 &2214254440504936797 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6600474781125245430, guid: d767cc02bbbf49b408f00e6b817d87c5,
@@ -119,7 +100,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2454953057539427687}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2.2179441
@@ -241,25 +222,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4981830531457113469}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1790983478087458468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6771687068621685721, guid: d767cc02bbbf49b408f00e6b817d87c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4981830531457113469}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1487590943
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790983478087458468}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.30522665
-  m_Center: {x: 0.06494729, y: -0.15733051, z: -0.052735448}
 --- !u!1 &2214254440147756171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6600474781125245430, guid: d767cc02bbbf49b408f00e6b817d87c5,
@@ -280,7 +242,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2454953057911562417}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2.2179441
@@ -332,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 4984925860330170967, guid: 972692fe3646d5d48b1e4cddf4c468a9,
         type: 3}
       propertyPath: m_Name
-      value: Hex_Stone_Zone_Rock
+      value: Hex_Stone_Zone_Rock Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5649153322713821421, guid: 972692fe3646d5d48b1e4cddf4c468a9,
         type: 3}
