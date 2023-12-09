@@ -49,6 +49,7 @@ public class Movement : MonoBehaviour
             {
                 SearchResurce(hit);
             }
+
         }
     }
 
@@ -59,12 +60,12 @@ public class Movement : MonoBehaviour
 
         Vector3 inputDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
         
-        if (inputDirection.magnitude >= 0.1f)
+        if (inputDirection.magnitude >= 0.2f)
         {
+            controller.gameObject.SetActive(false);
             Vector3 moveDirection = Quaternion.Euler(0f, Camera.main.transform.eulerAngles.y, 0f) * inputDirection;
             rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
             animator.SetBool("Run", true);
-         
         }
         else
         {
@@ -79,40 +80,44 @@ public class Movement : MonoBehaviour
 
         if (horizontalInput != 0f || verticalInput != 0f)
         {
+            controller.gameObject.SetActive(false);
             float targetAngle = Mathf.Atan2(horizontalInput, verticalInput) * Mathf.Rad2Deg;
             float angle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle, rotationSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
         }
     }
+
     private void SearchResurce(RaycastHit hit)
     {
-        if (hit.collider.GetComponent<ResourceController>())
+        if (!animator.GetBool("Run"))
         {
-            animator.SetBool("Attack", true);
-            controller.gameObject.SetActive(true);
+            if (hit.collider.GetComponent<ResourceController>())
+            {
+                animator.SetBool("Attack", true);
+                controller.gameObject.SetActive(true);
+            }
+            else
+            {
+                animator.SetBool("Attack", false);
+                controller.gameObject.SetActive(false);
+                weapon[prewIndexWeapon].SetActive(false);
+            }
+            switch (hit.collider.tag)
+            {
+                case "Wood":
+                    prewIndexWeapon = 0;
+                    weapon[prewIndexWeapon].SetActive(true);
+                    break;
+                case "Stone":
+                    prewIndexWeapon = 1;
+                    weapon[prewIndexWeapon].SetActive(true);
+                    break;
+                case "Crystal":
+                    prewIndexWeapon = 2;
+                    weapon[prewIndexWeapon].SetActive(true);
+                    break;
+            }
         }
-        else
-        {
-
-            animator.SetBool("Attack", false);
-            controller.gameObject.SetActive(false);
-            weapon[prewIndexWeapon].SetActive(false);
-        }
-        switch (hit.collider.tag)
-        {
-            case "Wood":
-                prewIndexWeapon = 0;
-                weapon[prewIndexWeapon].SetActive(true);
-                break;
-            case "Stone":
-                prewIndexWeapon = 1;
-                weapon[prewIndexWeapon].SetActive(true);
-                break;
-            case "Crystal":
-                prewIndexWeapon = 2;
-                weapon[prewIndexWeapon].SetActive(true);
-                break;
-        }    
     }
 
     private void OnTriggerEnter(Collider other)
