@@ -37,12 +37,12 @@ public class ResourceController: MonoBehaviour
         if (indexD < prefab.Length)
         {
             prefab[indexD].SetActive(false);
+            indexD++;
             if (indexD > 4)
             {
                 gameObject.GetComponent<Collider>().enabled = false;
                 isDeactivated = true;
             }
-            indexD++;
         }
 
     }
